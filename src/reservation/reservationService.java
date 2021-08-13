@@ -27,6 +27,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 import main.Controller;
+import main.MainClass;
 import memberDao.MemberShipDAO;
 
 
@@ -54,8 +55,8 @@ public class reservationService  {
 		showMemberShip(reservationForm,member.getId());
 		showStage(reservationForm, "reservationPage");
 		
-		Controller mainController=loader.getController();
-		mainController.setReservationForm(reservationForm,member);
+		reservationController reservationController=loader.getController();
+		reservationController.setReservationForm(reservationForm, member);
 		
 	}
 	private void showMemberShip(Parent reservationForm,String id) {
@@ -196,8 +197,8 @@ public class reservationService  {
 			getTimes(setShowTimePageForm,reservationForm,day);
 			showStage(setShowTimePageForm,"showTimePage");
 			
-			Controller mainController=fxmlLoader.getController();
-			mainController.setShowTimePageForm(reservationForm,setShowTimePageForm,day,member);
+			reservationController reservationController=fxmlLoader.getController();
+			reservationController.setShowTimePageForm(reservationForm,setShowTimePageForm,day,member);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
@@ -274,11 +275,11 @@ public class reservationService  {
 				commonService.ErrorMsg(error, "멤버십 기간내 일자를 선택해 주세요");
 				return;
 			}
-			if(memberShipDTO.getMemberShipCount()<1) {
+			/*if(memberShipDTO.getMemberShipCount()<1) {
 				System.out.println("수강 횟수를 소진 하였습니다");
 				commonService.ErrorMsg(error, "수강 횟수를 소진 하였습니다");
 				return;
-			}
+			}*/
 			if(day==0||day>31) {
 				System.out.println("잘못된 날짜 선택입니다");
 				commonService.ErrorMsg(error,"잘못된 날짜 선택입니다");

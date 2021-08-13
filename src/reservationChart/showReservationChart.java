@@ -43,8 +43,8 @@ public class showReservationChart {
 			showRankOfDay(reservationChartForm,year);
 			reservationService.showStage(reservationChartForm,"reservationChartPage");
 			
-			Controller mainController=loader.getController();
-			mainController.setChartForm(reservationChartForm);
+			reservationChartController reservationChartController=loader.getController();
+			reservationChartController.setChartForm(reservationChartForm);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
