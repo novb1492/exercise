@@ -34,7 +34,7 @@ public class reservationChartController implements Initializable {
 		System.out.println("plusYear");
 		Label labelYear=(Label) reservationChartForm.lookup("#yearLabel");
 		int year=Integer.parseInt(labelYear.getText());
-		if(year<LocalDate.now().getYear()) {
+		if(year<LocalDate.now().getYear()) 
 			year++;
 			showReservationChart.showReservationCharts(year);
 			reservationService.closeWindow(reservationChartForm);
