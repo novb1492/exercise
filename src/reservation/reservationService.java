@@ -275,11 +275,11 @@ public class reservationService  {
 				commonService.ErrorMsg(error, "멤버십 기간내 일자를 선택해 주세요");
 				return;
 			}
-			/*if(memberShipDTO.getMemberShipCount()<1) {
+			if(memberShipDTO.getMemberShipCount()<1) {
 				System.out.println("수강 횟수를 소진 하였습니다");
 				commonService.ErrorMsg(error, "수강 횟수를 소진 하였습니다");
 				return;
-			}*/
+			}
 			if(day==0||day>31) {
 				System.out.println("잘못된 날짜 선택입니다");
 				commonService.ErrorMsg(error,"잘못된 날짜 선택입니다");
