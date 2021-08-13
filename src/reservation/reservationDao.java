@@ -32,17 +32,16 @@ public class reservationDao {
 	}
 	public void insert(reservationDto reservationDto) {
 
-		String sql="insert into reservation values(?,?,?,?,?,?,?,?)";
+		String sql="insert into reservation values(auto_increment.NEXTVAL,?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setInt(1,1);
-			preparedStatement.setString(2, reservationDto.getEmail());
-			preparedStatement.setString(3, reservationDto.getName());
-			preparedStatement.setInt(4,reservationDto.getTime());
-			preparedStatement.setTimestamp(5, reservationDto.getCreated());
-			preparedStatement.setTimestamp(6, reservationDto.getrDate());
-			preparedStatement.setTimestamp(7, reservationDto.getDateAndTime());
-			preparedStatement.setInt(8, reservationDto.getYear());
+			preparedStatement.setString(1, reservationDto.getEmail());
+			preparedStatement.setString(2, reservationDto.getName());
+			preparedStatement.setInt(3,reservationDto.getTime());
+			preparedStatement.setTimestamp(4, reservationDto.getCreated());
+			preparedStatement.setTimestamp(5, reservationDto.getrDate());
+			preparedStatement.setTimestamp(6, reservationDto.getDateAndTime());
+			preparedStatement.setInt(7, reservationDto.getYear());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e1) {
 			e1.printStackTrace();
